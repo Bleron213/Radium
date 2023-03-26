@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace CityGrill.Products.Rest.Controllers
+namespace Radium.Identity.Rest.Controllers
 {
     [ApiController]
     [Route("[controller]")]

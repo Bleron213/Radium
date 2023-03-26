@@ -1,4 +1,4 @@
-namespace CityGrill.Products.Rest
+namespace Radium.Identity.Rest
 {
     public class WeatherForecast
     {

@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Citygrill.Products.UnitTests
+namespace Radium.Products.UnitTests
 {
     public class UnitTest1
     {

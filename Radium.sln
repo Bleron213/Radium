@@ -37,17 +37,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{58A5E361-640
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5E4A8C12-EC49-42CF-BF23-4477DD77D505}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Payment.Application", "Radium.Payment.Application\Radium.Payment.Application.csproj", "{8EB33665-2DF0-4281-AD5D-66AAC6019623}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Payment.Application", "Radium.Payment.Application\Radium.Payment.Application.csproj", "{8EB33665-2DF0-4281-AD5D-66AAC6019623}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Payment.Domain", "Radium.Payment.Domain\Radium.Payment.Domain.csproj", "{E60EB5DA-B42D-4D8A-9B07-3655BC858345}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Payment.Domain", "Radium.Payment.Domain\Radium.Payment.Domain.csproj", "{E60EB5DA-B42D-4D8A-9B07-3655BC858345}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Payment.Infrastructure", "Radium.Payment.Infrastructure\Radium.Payment.Infrastructure.csproj", "{98C74EB4-E9AE-44AC-B10D-F9C6F11447FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Payment.Infrastructure", "Radium.Payment.Infrastructure\Radium.Payment.Infrastructure.csproj", "{98C74EB4-E9AE-44AC-B10D-F9C6F11447FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Payment.Rest", "Radium.Payment.Rest\Radium.Payment.Rest.csproj", "{F6377CD8-7891-4A77-BE73-9A67798F3278}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Payment.Rest", "Radium.Payment.Rest\Radium.Payment.Rest.csproj", "{F6377CD8-7891-4A77-BE73-9A67798F3278}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Payment.IntegrationTests", "Radium.Payment.IntegrationTests\Radium.Payment.IntegrationTests.csproj", "{8B4ECE09-D1E2-49E2-ACBA-5A3E49BFBE5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Payment.IntegrationTests", "Radium.Payment.IntegrationTests\Radium.Payment.IntegrationTests.csproj", "{8B4ECE09-D1E2-49E2-ACBA-5A3E49BFBE5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Payment.UnitTests", "Radium.Payment.UnitTests\Radium.Payment.UnitTests.csproj", "{41C053CA-2660-4B2A-A0B6-7C6AAA4D7DFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Payment.UnitTests", "Radium.Payment.UnitTests\Radium.Payment.UnitTests.csproj", "{41C053CA-2660-4B2A-A0B6-7C6AAA4D7DFE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{477F84BD-C2FD-4299-A4E0-7A8A808B4260}"
 EndProject
@@ -61,31 +61,53 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C56428F7-837
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9740DBBC-7D85-4B3B-9EAF-2DB798DB10E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.ApiGateway", "Radium.Gateway\Radium.ApiGateway.csproj", "{6C9CC2A6-6136-4324-9720-3D48871911F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.ApiGateway", "Radium.Gateway\Radium.ApiGateway.csproj", "{6C9CC2A6-6136-4324-9720-3D48871911F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Order.Application", "Radium.Order.Application\Radium.Order.Application.csproj", "{B81F21F2-6C4B-42C3-A66B-0F9720B7290E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Order.Application", "Radium.Order.Application\Radium.Order.Application.csproj", "{B81F21F2-6C4B-42C3-A66B-0F9720B7290E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Order.Domain", "Radium.Order.Domain\Radium.Order.Domain.csproj", "{8EF12157-11D6-4574-8E7A-22ACB7FACA35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Order.Domain", "Radium.Order.Domain\Radium.Order.Domain.csproj", "{8EF12157-11D6-4574-8E7A-22ACB7FACA35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Order.Infrastructure", "Radium.Order.Infrastructure\Radium.Order.Infrastructure.csproj", "{5E3132FC-0D6E-4386-B31B-18D3AD51025C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Order.Infrastructure", "Radium.Order.Infrastructure\Radium.Order.Infrastructure.csproj", "{5E3132FC-0D6E-4386-B31B-18D3AD51025C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Order.Rest", "Radium.Order.Rest\Radium.Order.Rest.csproj", "{30E00483-10A1-4915-A9B0-0FF95C52DD74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Order.Rest", "Radium.Order.Rest\Radium.Order.Rest.csproj", "{30E00483-10A1-4915-A9B0-0FF95C52DD74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Order.UnitTests", "Radium.Order.UnitTests\Radium.Order.UnitTests.csproj", "{8BF547F6-AF23-4847-9ECF-645ABE390A81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Order.UnitTests", "Radium.Order.UnitTests\Radium.Order.UnitTests.csproj", "{8BF547F6-AF23-4847-9ECF-645ABE390A81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Order.IntegrationTests", "Radium.Order.IntegrationTests\Radium.Order.IntegrationTests.csproj", "{C6674CA1-4193-429C-AE3C-B3ACC237866C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Order.IntegrationTests", "Radium.Order.IntegrationTests\Radium.Order.IntegrationTests.csproj", "{C6674CA1-4193-429C-AE3C-B3ACC237866C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Cart.Rest", "Radium.Cart.Rest\Radium.Cart.Rest.csproj", "{DC0F816E-1519-4C8D-838A-A21B12CBFB8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Cart.Rest", "Radium.Cart.Rest\Radium.Cart.Rest.csproj", "{DC0F816E-1519-4C8D-838A-A21B12CBFB8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Cart.Application", "Radium.Cart.Application\Radium.Cart.Application.csproj", "{5ED5D01A-0683-42BF-A3CD-D74BB2E78F2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Cart.Application", "Radium.Cart.Application\Radium.Cart.Application.csproj", "{5ED5D01A-0683-42BF-A3CD-D74BB2E78F2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Cart.Infrastructure", "Radium.Cart.Infrastructure\Radium.Cart.Infrastructure.csproj", "{17C22E2A-3858-465A-8DE2-D226DEB4F139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Cart.Infrastructure", "Radium.Cart.Infrastructure\Radium.Cart.Infrastructure.csproj", "{17C22E2A-3858-465A-8DE2-D226DEB4F139}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Cart.Domain", "Radium.Cart.Domain\Radium.Cart.Domain.csproj", "{F0EFCD33-3D1C-46D3-AFA8-EE157D510D91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Cart.Domain", "Radium.Cart.Domain\Radium.Cart.Domain.csproj", "{F0EFCD33-3D1C-46D3-AFA8-EE157D510D91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Cart.IntegrationTests", "Radium.Cart.IntegrationTests\Radium.Cart.IntegrationTests.csproj", "{A68F8002-A166-48C9-93FE-5386B2B51FE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Cart.IntegrationTests", "Radium.Cart.IntegrationTests\Radium.Cart.IntegrationTests.csproj", "{A68F8002-A166-48C9-93FE-5386B2B51FE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Cart.UnitTests", "Radium.Cart.UnitTests\Radium.Cart.UnitTests.csproj", "{28B9BD48-08B9-4DFF-A54A-02674550B862}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Cart.UnitTests", "Radium.Cart.UnitTests\Radium.Cart.UnitTests.csproj", "{28B9BD48-08B9-4DFF-A54A-02674550B862}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Identity.Rest", "Radium.Identity.Rest\Radium.Identity.Rest.csproj", "{9F8FEE3E-53D5-4E2F-8C7A-DB731EE198C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Identity.Application", "Radium.Identity.Application\Radium.Identity.Application.csproj", "{A7DA2B08-2E0C-4ABC-9836-25AF2BD976CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Identity.Domain", "Radium.Identity.Domain\Radium.Identity.Domain.csproj", "{C9D8BE8C-A962-4892-9F65-F37279B23314}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Identity.Infrastructure", "Radium.Identity.Infrastructure\Radium.Identity.Infrastructure.csproj", "{3DC7176B-4C33-4F90-9584-08D2A086EEF9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Identity.UnitTests", "Radium.Identity.UnitTests\Radium.Identity.UnitTests.csproj", "{AB7FA7E4-6F8A-4149-9DB1-678A10BFA183}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{B6036475-DC8E-4D7F-BD67-FF6554A8E49E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Packages", "Packages", "{382A3DBC-1027-465B-B4BE-3FDD78CD5AB4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Identity.IntegrationTests", "Radium.Identity.IntegrationTests\Radium.Identity.IntegrationTests.csproj", "{F08A0529-83AE-40DF-99E9-482866E9C380}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{66CE284E-A7A3-4339-8B82-1FB38504190E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{07689954-BAA0-4A98-98B9-EF433D9A6A6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Products.Rest.Contracts", "Radium.Products.Rest.Contracts\Radium.Products.Rest.Contracts.csproj", "{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -193,6 +215,34 @@ Global
 		{28B9BD48-08B9-4DFF-A54A-02674550B862}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28B9BD48-08B9-4DFF-A54A-02674550B862}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28B9BD48-08B9-4DFF-A54A-02674550B862}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F8FEE3E-53D5-4E2F-8C7A-DB731EE198C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8FEE3E-53D5-4E2F-8C7A-DB731EE198C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8FEE3E-53D5-4E2F-8C7A-DB731EE198C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8FEE3E-53D5-4E2F-8C7A-DB731EE198C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7DA2B08-2E0C-4ABC-9836-25AF2BD976CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7DA2B08-2E0C-4ABC-9836-25AF2BD976CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7DA2B08-2E0C-4ABC-9836-25AF2BD976CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7DA2B08-2E0C-4ABC-9836-25AF2BD976CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D8BE8C-A962-4892-9F65-F37279B23314}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D8BE8C-A962-4892-9F65-F37279B23314}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D8BE8C-A962-4892-9F65-F37279B23314}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D8BE8C-A962-4892-9F65-F37279B23314}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DC7176B-4C33-4F90-9584-08D2A086EEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DC7176B-4C33-4F90-9584-08D2A086EEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DC7176B-4C33-4F90-9584-08D2A086EEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DC7176B-4C33-4F90-9584-08D2A086EEF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB7FA7E4-6F8A-4149-9DB1-678A10BFA183}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB7FA7E4-6F8A-4149-9DB1-678A10BFA183}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB7FA7E4-6F8A-4149-9DB1-678A10BFA183}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB7FA7E4-6F8A-4149-9DB1-678A10BFA183}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F08A0529-83AE-40DF-99E9-482866E9C380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F08A0529-83AE-40DF-99E9-482866E9C380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F08A0529-83AE-40DF-99E9-482866E9C380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F08A0529-83AE-40DF-99E9-482866E9C380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -238,6 +288,16 @@ Global
 		{F0EFCD33-3D1C-46D3-AFA8-EE157D510D91} = {C56428F7-8377-4D48-A747-AC853B565136}
 		{A68F8002-A166-48C9-93FE-5386B2B51FE6} = {9740DBBC-7D85-4B3B-9EAF-2DB798DB10E2}
 		{28B9BD48-08B9-4DFF-A54A-02674550B862} = {9740DBBC-7D85-4B3B-9EAF-2DB798DB10E2}
+		{9F8FEE3E-53D5-4E2F-8C7A-DB731EE198C3} = {18187C2C-B81C-483A-818B-FAEC1E041B77}
+		{A7DA2B08-2E0C-4ABC-9836-25AF2BD976CB} = {18187C2C-B81C-483A-818B-FAEC1E041B77}
+		{C9D8BE8C-A962-4892-9F65-F37279B23314} = {18187C2C-B81C-483A-818B-FAEC1E041B77}
+		{3DC7176B-4C33-4F90-9584-08D2A086EEF9} = {18187C2C-B81C-483A-818B-FAEC1E041B77}
+		{AB7FA7E4-6F8A-4149-9DB1-678A10BFA183} = {2B434F91-94F4-49DA-97DF-D076E6417BB4}
+		{382A3DBC-1027-465B-B4BE-3FDD78CD5AB4} = {B6036475-DC8E-4D7F-BD67-FF6554A8E49E}
+		{F08A0529-83AE-40DF-99E9-482866E9C380} = {2B434F91-94F4-49DA-97DF-D076E6417BB4}
+		{66CE284E-A7A3-4339-8B82-1FB38504190E} = {13923921-67AC-47BA-A1BC-051AF84A29A1}
+		{07689954-BAA0-4A98-98B9-EF433D9A6A6D} = {13923921-67AC-47BA-A1BC-051AF84A29A1}
+		{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF} = {66CE284E-A7A3-4339-8B82-1FB38504190E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {015DFA08-99F5-49A6-82AE-E60BACB6CA66}

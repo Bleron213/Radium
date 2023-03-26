@@ -1,4 +1,4 @@
-﻿namespace CityGrill.Products.Infrastructure
+﻿namespace Radium.Products.Infrastructure
 {
     public class Class1
     {

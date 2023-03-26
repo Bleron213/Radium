@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Radium.Products.IntegrationTests
+namespace Radium.Identity.IntegrationTests
 {
     public class UnitTest1
     {
