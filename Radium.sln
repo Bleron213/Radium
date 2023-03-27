@@ -107,7 +107,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{07689954-BAA0-4A98-98B9-EF433D9A6A6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Products.Rest.Contracts", "Radium.Products.Rest.Contracts\Radium.Products.Rest.Contracts.csproj", "{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Products.Rest.Contracts", "Radium.Products.Rest.Contracts\Radium.Products.Rest.Contracts.csproj", "{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Products.Entities", "Radium.Products.Entities\Radium.Products.Entities.csproj", "{1A9FB1CA-41C1-48F2-9342-2C0CB492AE3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -243,6 +245,10 @@ Global
 		{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A9FB1CA-41C1-48F2-9342-2C0CB492AE3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A9FB1CA-41C1-48F2-9342-2C0CB492AE3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A9FB1CA-41C1-48F2-9342-2C0CB492AE3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A9FB1CA-41C1-48F2-9342-2C0CB492AE3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -298,6 +304,7 @@ Global
 		{66CE284E-A7A3-4339-8B82-1FB38504190E} = {13923921-67AC-47BA-A1BC-051AF84A29A1}
 		{07689954-BAA0-4A98-98B9-EF433D9A6A6D} = {13923921-67AC-47BA-A1BC-051AF84A29A1}
 		{944D043D-EEC2-4C9E-AD3A-B5938CEF8CCF} = {66CE284E-A7A3-4339-8B82-1FB38504190E}
+		{1A9FB1CA-41C1-48F2-9342-2C0CB492AE3B} = {13923921-67AC-47BA-A1BC-051AF84A29A1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {015DFA08-99F5-49A6-82AE-E60BACB6CA66}

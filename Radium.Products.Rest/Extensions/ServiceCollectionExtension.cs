@@ -1,6 +1,9 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Mvc.Versioning;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Radium.Products.Application.Rest.Queries;
+using Radium.Products.Infrastructure.Persistence;
 using Radium.Products.Rest.Contracts.Response;
 using System.Reflection;
 
@@ -8,7 +11,7 @@ namespace Radium.Products.Rest.Extensions
 {
     public static class ServiceCollectionExtension
     {
-        public static void ConfigureServices(this IServiceCollection services)
+        public static void ConfigureApplicationServices(this IServiceCollection services)
         {
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
@@ -31,6 +34,32 @@ namespace Radium.Products.Rest.Extensions
             #region Behaviors
 
             #endregion
+        }
+
+        public static void ConfigureDatabase(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<ProductsDbContext>(options =>
+            {
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            });
+        }
+
+        public static void ConfigureVersionedSwagger(this IServiceCollection services)
+        {
+            services.AddApiVersioning(config =>
+            {
+                config.AssumeDefaultVersionWhenUnspecified = true;
+                config.ApiVersionReader = new UrlSegmentApiVersionReader();
+                config.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+                config.ReportApiVersions = true;
+            });
+
+            services.AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true;
+                options.AssumeDefaultVersionWhenUnspecified = true;
+            });
         }
     }
 }

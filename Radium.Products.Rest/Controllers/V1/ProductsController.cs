@@ -16,7 +16,6 @@ namespace Radium.Products.Rest.Controllers.V1
         {
             var query = GetProductByIdQuery.Create(productId);
             var result = await Mediator.Send(query);
-
             return Ok(result);
         }
     }
