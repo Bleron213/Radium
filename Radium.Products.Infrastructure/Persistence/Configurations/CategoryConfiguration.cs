@@ -9,16 +9,12 @@ using System.Threading.Tasks;
 
 namespace Radium.Products.Infrastructure.Persistence.Configurations
 {
-    public class ProductConfiguration : IEntityTypeConfiguration<Product>
+    public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<Product> builder)
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.Property(x => x.Name).HasMaxLength(200);
             builder.Property(x => x.Description).HasMaxLength(2000);
-
-            builder.HasOne(x => x.Category)
-                .WithMany(x => x.Products)
-                .HasForeignKey(x => x.CategoryId);
         }
     }
 }

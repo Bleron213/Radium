@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using Microsoft.AspNetCore.Mvc.Versioning;
+using Radium.Products.Infrastructure.Middlewares;
 using Radium.Products.Rest.Extensions;
 using Serilog;
+using Radium.Products.Infrastructure.Extensions;
+using Radium.Products.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
@@ -28,12 +31,19 @@ try
 
     var app = builder.Build();
 
-    // Configure the HTTP request pipeline.
+    var hostingEnvironment = app.Services.GetRequiredService<IHostEnvironment>();
 
-    var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+    app.Services.MigrateDatabase();
+
+    if (hostingEnvironment.IsDevelopment())
+    {
+        app.Services.SeedDatabase();
+    }
 
     app.UseSerilogRequestLogging();
     app.UseSwagger();
+
+    var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
     app.UseSwaggerUI(c =>
     {
         foreach (var group in provider.ApiVersionDescriptions.Select(x => x.GroupName))
@@ -44,13 +54,13 @@ try
         c.OAuthAppName("Radium Products Rest API - Swagger");
     });
 
+    app.ConfigureCustomExceptionMiddleware();
 
     app.UseHttpsRedirection();
-
+    app.UseAuthentication();
     app.UseAuthorization();
 
     app.MapControllers();
-
     app.Run();
 
 }

@@ -4,14 +4,11 @@ using System.Text;
 
 namespace Radium.Products.Entities.Models
 {
-    public class Product : BaseEntity
+    public class Category : BaseEntity
     {
         public string Name { get; set; }
         public string? Description { get; set; }
-        public double Price { get; set; }
-        public string ImageUrl { get; set; }
 
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public List<Product>? Products { get; set; }
     }
 }

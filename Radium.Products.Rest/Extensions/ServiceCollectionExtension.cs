@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Radium.Products.Application.Common;
 using Radium.Products.Application.Rest.Queries;
 using Radium.Products.Infrastructure.Persistence;
 using Radium.Products.Rest.Contracts.Response;
@@ -13,7 +14,13 @@ namespace Radium.Products.Rest.Extensions
     {
         public static void ConfigureApplicationServices(this IServiceCollection services)
         {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            services.AddMediatR(cfg => 
+            {
+                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+                //cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
+
+            });
 
             #region Commands
 

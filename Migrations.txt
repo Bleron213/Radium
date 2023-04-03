@@ -1,0 +1,13 @@
+1. Migrations
+
+To run a migration, follow these steps
+
+1. Set startup project to the project that has the conection string of the database
+ex: Radium.Products.Rest
+
+2. Open Nuget Package Manager. Set Default Project to the project where Migrations will be.
+
+3. Run this command "add-migration <MigrationName> -OutputDir "<path>"
+ex: add-migration AddedCategory -OutputDir "Persistence/Migrations"
+
+4. Run this command: update-database

@@ -111,7 +111,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Products.Rest.Contra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Products.Entities", "Radium.Products.Entities\Radium.Products.Entities.csproj", "{1A9FB1CA-41C1-48F2-9342-2C0CB492AE3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Radium.Shared.Utils", "Radium.Shared.Utils\Radium.Shared.Utils.csproj", "{F9035F86-D9F9-417C-AC0B-01FAC982A627}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Radium.Shared.Utils", "Radium.Shared.Utils\Radium.Shared.Utils.csproj", "{F9035F86-D9F9-417C-AC0B-01FAC982A627}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instructions", "Instructions", "{A22DEE87-1655-40A6-A905-89A9F4A75B92}"
+	ProjectSection(SolutionItems) = preProject
+		Migrations.txt = Migrations.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
