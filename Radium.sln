@@ -116,6 +116,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instructions", "Instructions", "{A22DEE87-1655-40A6-A905-89A9F4A75B92}"
 	ProjectSection(SolutionItems) = preProject
 		Migrations.txt = Migrations.txt
+		PublishingNugetPackages.txt = PublishingNugetPackages.txt
 	EndProjectSection
 EndProject
 Global

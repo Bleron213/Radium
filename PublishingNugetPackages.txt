@@ -1,0 +1,15 @@
+1. In the package you want to publish, switch to release mode
+2. Change description, up the version number, pack.
+3. In the directory where nupkg is, run this command:
+
+dotnet nuget push <package_name>.<major_version>.<minor_version>.<patch_version>.nupkg 
+--api-key <api_key> 
+--source https://api.nuget.org/v3/index.json 
+
+For our project, we will use apiKey: oy2fig77e5jzbufcopkqxqt635ml6ckezgydq24s2jvqqq
+
+To regenerate an API Key in nuget.org, google that bro.
+
+4. Wait a while unitl it gets pushed.
+5. ???
+6. Profit.

@@ -3,29 +3,29 @@ using Radium.Products.Rest.Contracts.Response;
 
 namespace Radium.Products.Application.Rest.Queries
 {
-    public class GetProductByIdQuery : IRequest<GetProductByIdResponse>
+    public class GetProductByIdQuery : IRequest<ProductDto>
     {
-        public readonly Guid ProductId;
-        public GetProductByIdQuery(Guid productId)
+        public readonly int ProductId;
+        public GetProductByIdQuery(int productId)
         {
             ProductId = productId;
         }
 
-        public static GetProductByIdQuery Create(Guid productId)
+        public static GetProductByIdQuery Create(int productId)
         {
             ArgumentNullException.ThrowIfNull(productId);
             return new GetProductByIdQuery(productId);
         }
 
 
-        public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, GetProductByIdResponse>
+        public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, ProductDto>
         {
 
             public GetProductByIdQueryHandler()
             {
             }
 
-            Task<GetProductByIdResponse> IRequestHandler<GetProductByIdQuery, GetProductByIdResponse>.Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
+            public async Task<ProductDto> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
             {
                 throw new NotImplementedException();
             }

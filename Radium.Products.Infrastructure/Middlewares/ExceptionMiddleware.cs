@@ -40,11 +40,12 @@ namespace Radium.Products.Infrastructure.Middlewares
         {
             _logger.LogError(exception, "Error in Custom Middleware");
 
-            var response = new Response<string>();
+            var response = new ErrorDetails();
 
             if (_hostingEnv.IsDevelopment())
             {
-                response.Errors.Add(new KeyValuePair<string, string>("Exception", exception.ToString()));
+                response.ErrorMessage = "Exception";
+                response.ErrorExceptionMessage = exception.ToString();
             }
 
             context.Response.ContentType = "application/json";
@@ -55,7 +56,6 @@ namespace Radium.Products.Infrastructure.Middlewares
 
                 response.Message = "Custom Error ocurred";
                 response.Errors.AddRange(customError.SerializeErrors());
-                response.StatusCode = (int)customError.StatusCode;
                 context.Response.StatusCode = (int)customError.StatusCode;
                 await context.Response.WriteAsync(response.ToString());
                 return;
@@ -64,13 +64,12 @@ namespace Radium.Products.Infrastructure.Middlewares
             if (exception is BadHttpRequestException)
             {
                 response.Message = "A BadRequest was received";
-                response.StatusCode = (int)HttpStatusCode.BadRequest;
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 await context.Response.WriteAsync(response.ToString());
                 return;
             }
 
             response.Message = "Unexpected error ocurred";
-            response.StatusCode = (int)HttpStatusCode.InternalServerError;
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             await context.Response.WriteAsync(response.ToString());
 

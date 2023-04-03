@@ -27,7 +27,7 @@ namespace Radium.Products.Rest.Extensions
             #endregion
 
             #region Queries
-            services.AddScoped<IRequestHandler<GetProductByIdQuery, GetProductByIdResponse>, GetProductByIdQuery.GetProductByIdQueryHandler>();
+            services.AddScoped<IRequestHandler<GetProductByIdQuery, ProductDto>, GetProductByIdQuery.GetProductByIdQueryHandler>();
             #endregion
 
             #region Validations
