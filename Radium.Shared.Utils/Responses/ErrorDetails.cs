@@ -4,16 +4,19 @@ using System.Collections.Generic;
 
 namespace Radium.Shared.Utils.Responses
 {
-    public class ErrorDetails 
+    public class ErrorDetails : Error
     {
-        public string? ErrorMessage { get; set; }
-        public string? ErrorExceptionMessage { get; set; }
         public bool Succeeded { get; set; }
-        public string Message { get; set; }
-        public List<KeyValuePair<string, string>> Errors { get; set; } = new List<KeyValuePair<string, string>>();
+        public List<Error> Errors { get; set; }
         public override string ToString()
         {
             return JsonConvert.SerializeObject(this);
         }
+    }
+
+    public class Error
+    {
+        public string ErrorMessage { get; set; }
+        public string ErrorExceptionMessage { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using FluentValidation;
 
-namespace Radium.Products.Application.Common
+namespace Radium.Products.Application.Common.Behaviors
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
          where TRequest : notnull

@@ -19,7 +19,7 @@ namespace Radium.Products.Rest.Controllers.V1
             _logger = logger;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{productId}")]
         [ProducesResponseType(200, Type = typeof(ProductDto))]
         [ProducesResponseType(400, Type = typeof(ErrorDetails))]
         [ProducesResponseType(401, Type = typeof(ErrorDetails))]

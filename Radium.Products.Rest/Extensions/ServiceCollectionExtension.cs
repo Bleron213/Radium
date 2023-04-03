@@ -2,7 +2,8 @@
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Radium.Products.Application.Common;
+using Radium.Products.Application.Common.Behaviors;
+using Radium.Products.Application.Common.Infrastructure.Interfaces;
 using Radium.Products.Application.Rest.Queries;
 using Radium.Products.Infrastructure.Persistence;
 using Radium.Products.Rest.Contracts.Response;
@@ -49,6 +50,8 @@ namespace Radium.Products.Rest.Extensions
             {
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
+            services.AddScoped<IProductsDbContext>(provider => provider.GetRequiredService<ProductsDbContext>());
+            services.AddScoped<ProductsDbContextInitializer>();
         }
 
         public static void ConfigureVersionedSwagger(this IServiceCollection services)

@@ -9,6 +9,7 @@ namespace Radium.Products.Rest.Contracts.Response
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public double Price { get; set; }
         public ProductCategoryDto Category { get; set; }
     }
 

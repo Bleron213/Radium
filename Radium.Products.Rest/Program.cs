@@ -31,13 +31,14 @@ try
 
     var app = builder.Build();
 
+    using var scope = app.Services.CreateScope();
+    var initializer = scope.ServiceProvider.GetRequiredService<ProductsDbContextInitializer>();
+    initializer.InitializeAsync().GetAwaiter().GetResult();
+
     var hostingEnvironment = app.Services.GetRequiredService<IHostEnvironment>();
-
-    app.Services.MigrateDatabase();
-
     if (hostingEnvironment.IsDevelopment())
     {
-        app.Services.SeedDatabase();
+        initializer.Seed().GetAwaiter().GetResult();
     }
 
     app.UseSerilogRequestLogging();

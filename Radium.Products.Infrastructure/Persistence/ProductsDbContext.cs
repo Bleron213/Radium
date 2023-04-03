@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Radium.Products.Application.Common.Infrastructure.Interfaces;
 using Radium.Products.Entities.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Radium.Products.Infrastructure.Persistence
 {
-    public class ProductsDbContext : DbContext
+    public class ProductsDbContext : DbContext, IProductsDbContext
     {
         public DbSet<Product> Products { get; set; }
 

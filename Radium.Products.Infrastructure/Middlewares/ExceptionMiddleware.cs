@@ -39,39 +39,54 @@ namespace Radium.Products.Infrastructure.Middlewares
         private async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
             _logger.LogError(exception, "Error in Custom Middleware");
+            HttpResponse response = context.Response;
 
-            var response = new ErrorDetails();
-
-            if (_hostingEnv.IsDevelopment())
+            response.ContentType = "application/json";
+            ErrorDetails errorDetails = new()
             {
-                response.ErrorMessage = "Exception";
-                response.ErrorExceptionMessage = exception.ToString();
-            }
+                Succeeded = false
+            };
 
-            context.Response.ContentType = "application/json";
+            List<AppException> appExceptions = exception.getinn
 
-            if (exception is CustomError)
-            {
-                var customError = exception as CustomError;
 
-                response.Message = "Custom Error ocurred";
-                response.Errors.AddRange(customError.SerializeErrors());
-                context.Response.StatusCode = (int)customError.StatusCode;
-                await context.Response.WriteAsync(response.ToString());
-                return;
-            }
+            //var response = new ErrorDetails();
 
-            if (exception is BadHttpRequestException)
-            {
-                response.Message = "A BadRequest was received";
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                await context.Response.WriteAsync(response.ToString());
-                return;
-            }
+            //if (_hostingEnv.IsDevelopment())
+            //{
+            //    response.ErrorExceptionMessage = exception.ToString();
+            //}
 
-            response.Message = "Unexpected error ocurred";
-            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            await context.Response.WriteAsync(response.ToString());
+            //context.Response.ContentType = "application/json";
+
+            //if(exception is NotFoundError)
+            //{
+            //    var notFoundError = exception as NotFoundError;
+            //    response.Message = "not_found";
+            //    response.ErrorExceptionMessage = notFoundError.ToString();
+            //}
+
+            //if (exception is CustomError)
+            //{
+            //    var customError = exception as CustomError;
+            //    response.Message = exception.Message ?? "Custom Error ocurred";
+            //    response.Errors.AddRange(customError.SerializeErrors());
+            //    context.Response.StatusCode = (int)customError.StatusCode;
+            //    await context.Response.WriteAsync(response.ToString());
+            //    return;
+            //}
+
+            //if (exception is BadHttpRequestException)
+            //{
+            //    response.Message = "A BadRequest was received";
+            //    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            //    await context.Response.WriteAsync(response.ToString());
+            //    return;
+            //}
+
+            //response.Message = "Unexpected error ocurred";
+            //context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            //await context.Response.WriteAsync(response.ToString());
 
         }
     }

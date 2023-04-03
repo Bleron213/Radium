@@ -5,23 +5,23 @@ using System.Text;
 
 namespace Radium.Shared.Utils.Errors
 {
-    public abstract class CustomError : Exception
+    public class CustomError
     {
-        public HttpStatusCode StatusCode { get; set; }
-        public string ErrorMessage { get; set; }
+        public readonly string ErrorKey;
+        public readonly string Message;
+        public readonly HttpStatusCode StatusCode;
 
-        public CustomError(HttpStatusCode httpStatusCode, string errorMessage)
+        public CustomError(HttpStatusCode code, string errorKey, string message)
         {
-            ErrorMessage = errorMessage;
-            StatusCode = httpStatusCode;
+            StatusCode = code;
+            ErrorKey = errorKey;
+            Message = message;
         }
 
-        public CustomError(string errorMessage) : this(HttpStatusCode.BadRequest, errorMessage)
+        public CustomError(string errorKey, string message) : this(HttpStatusCode.BadRequest, errorKey, message)
         {
         }
 
-        public abstract List<KeyValuePair<string, string>> SerializeErrors();
 
     }
-
 }

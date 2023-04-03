@@ -21,12 +21,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Radium.Shared.Utils" Version="1.0.2" />
+    <PackageReference Include="Radium.Shared.Utils" Version="1.1.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Radium.Products.Application\Radium.Products.Application.csproj" />
     <ProjectReference Include="..\Radium.Products.Entities\Radium.Products.Entities.csproj" />
   </ItemGroup>
 

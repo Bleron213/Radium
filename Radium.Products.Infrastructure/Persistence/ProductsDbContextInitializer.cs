@@ -1,14 +1,75 @@
-﻿using Radium.Products.Entities.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Radium.Products.Entities.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Radium.Products.Rest.Seed
+namespace Radium.Products.Infrastructure.Persistence
 {
-    public class ProductsData
+    public class ProductsDbContextInitializer
     {
-        public static List<Category> Categories = new List<Category>
+        private readonly ILogger<ProductsDbContextInitializer> _logger;
+        private readonly ProductsDbContext _dbContext;
+
+        public ProductsDbContextInitializer(
+            ILogger<ProductsDbContextInitializer> logger,
+            ProductsDbContext dbContext
+            )
+        {
+            _logger = logger;
+            _dbContext = dbContext;
+        }
+
+        public async Task InitializeAsync()
+        {
+            try
+            {
+                if (_dbContext.Database.IsSqlServer())
+                {
+                    await _dbContext.Database.MigrateAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while initialising the database.");
+                throw;
+            }
+        }
+
+        public async Task Seed()
+        {
+            try
+            {
+                await TrySeedAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while seeding the database.");
+                throw;
+            }
+        }
+
+        private async Task TrySeedAsync()
+        {
+            foreach (var category in Categories)
+            {
+                var exists = await _dbContext.Products.AnyAsync(x => x.Name == category.Name);
+                if(exists) continue;
+                await _dbContext.AddAsync(category);
+            }
+
+            await _dbContext.SaveChangesAsync();
+        }
+
+        #region Static Data
+        private static List<Category> Categories = new List<Category>
         {
             new Category()
             {
-                Name = "Computer", 
+                Name = "Computer",
                 Products = new List<Product>
                 {
                     new Product
@@ -17,7 +78,7 @@ namespace Radium.Products.Rest.Seed
                         Description = "Performance tailored for professionals. The new MacBook Pro comes with a 14\" display and pushes the imaginative boundaries to a new level with its performance. The significantly improved architecture of the M2 Pro simply has the brute power for all your creative ideas. And what you notice at a glance seen is the elegant design with an emphasis on quality workmanship.",
                         Price = 2500,
                         ImageUrl = "https://hhstsyoejx.gjirafa.net/gj50/img/204545/img/0.jpg"
-                    }, 
+                    },
                     new Product
                     {
                         Name = "Apple MacBook Air 13.3, M1 8-core",
@@ -71,6 +132,6 @@ namespace Radium.Products.Rest.Seed
             }
         };
 
-        
+        #endregion
     }
 }
