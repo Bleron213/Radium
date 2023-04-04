@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Radium.Products.Rest.Contracts.Requests
 {
-    public class ProductCreateModel
+    public class ProductCreateModel 
     {
         public string Name { get; set; }
         public string Description { get; set; }

@@ -10,6 +10,8 @@ namespace Radium.Products.Application.Common.Infrastructure.Interfaces
 {
     public interface IProductsDbContext
     {
-        public DbSet<Product> Products { get; }
+        DbSet<Product> Products { get; }
+        DbSet<Category> Category { get; set; }
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

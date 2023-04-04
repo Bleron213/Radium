@@ -1,12 +1,16 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Radium.Products.Application.Common.Behaviors;
 using Radium.Products.Application.Common.Infrastructure.Interfaces;
+using Radium.Products.Application.Rest.Commands;
+using Radium.Products.Application.Rest.Commands.Validators;
 using Radium.Products.Application.Rest.Queries;
 using Radium.Products.Infrastructure.Persistence;
 using Radium.Products.Rest.Contracts.Response;
+using Radium.Shared.Utils.Responses;
 using System.Reflection;
 
 namespace Radium.Products.Rest.Extensions
@@ -24,15 +28,20 @@ namespace Radium.Products.Rest.Extensions
             });
 
             #region Commands
+            services.AddScoped<IRequestHandler<CreateProductCommand, ProductDto>, CreateProductCommand.CreateProductCommandHandler>();
+            services.AddScoped<IRequestHandler<DeleteProductCommand, Unit>, DeleteProductCommand.DeleteProductCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateProductCommand, ProductDto>, UpdateProductCommand.UpdateProductCommandHandler>();
 
             #endregion
 
             #region Queries
             services.AddScoped<IRequestHandler<GetProductByIdQuery, ProductDto>, GetProductByIdQuery.GetProductByIdQueryHandler>();
+            services.AddScoped<IRequestHandler<GetProductsQuery, PagedResponse<ProductDto>>, GetProductsQuery.GetProductsQueryHandler>();
             #endregion
 
             #region Validations
-
+            services.AddScoped<IValidator<CreateProductCommand>, CreateProductCommandValidator>();
+            services.AddScoped<IValidator<UpdateProductCommand>, UpdateProductCommandValidator>();
             #endregion
 
             #region Event Handlers

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Radium.Shared.Utils" Version="1.1.0" />
+    <PackageReference Include="Radium.Shared.Utils" Version="1.1.2" />
   </ItemGroup>
 
 </Project>

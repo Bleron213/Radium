@@ -6,7 +6,7 @@ dotnet nuget push <package_name>.<major_version>.<minor_version>.<patch_version>
 --api-key <api_key> 
 --source https://api.nuget.org/v3/index.json 
 
-For our project, we will use apiKey: oy2fig77e5jzbufcopkqxqt635ml6ckezgydq24s2jvqqq
+For our project, we will use apiKey: oy2fkqza63vigd5v46iabdbprk2uvxyu5cxezaesthf7sm
 
 To regenerate an API Key in nuget.org, google that bro.
 

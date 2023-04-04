@@ -21,7 +21,10 @@ try
     .ReadFrom.Configuration(ctx.Configuration));
     // Add services to the container.
 
-    builder.Services.AddControllers();
+    builder.Services.AddControllers(options =>
+    {
+        options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true; // Supress default .NET validation
+    });
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();

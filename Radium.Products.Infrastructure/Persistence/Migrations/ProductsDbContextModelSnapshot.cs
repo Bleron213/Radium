@@ -78,7 +78,6 @@ namespace Radium.Products.Infrastructure.Persistence.Migrations
                         .HasColumnType("nvarchar(2000)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

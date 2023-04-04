@@ -13,6 +13,7 @@ namespace Radium.Products.Infrastructure.Persistence
     public class ProductsDbContext : DbContext, IProductsDbContext
     {
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Category { get; set; }
 
         public ProductsDbContext(DbContextOptions options) : base(options)
         {
@@ -23,5 +24,6 @@ namespace Radium.Products.Infrastructure.Persistence
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
         }
+
     }
 }

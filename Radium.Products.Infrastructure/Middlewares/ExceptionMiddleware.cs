@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Radium.Shared.Utils.Errors;
 using Radium.Shared.Utils.Responses;
 using System;
@@ -8,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Radium.Products.Infrastructure.Middlewares
@@ -47,47 +50,47 @@ namespace Radium.Products.Infrastructure.Middlewares
                 Succeeded = false
             };
 
-            List<AppException> appExceptions = exception.getinn
+            if (exception is AppException)
+            {
+                var appException = exception as AppException;
+                errorDetails.ErrorMessage = appException.Error.ErrorKey;
+                errorDetails.ErrorExceptionMessage = appException.Error.Message;
+            }
+            else if (exception is ValidationException)
+            {
+                var validationException = exception as ValidationException;
+                errorDetails.ErrorMessage = "validation_failed";
+                errorDetails.ErrorExceptionMessage = validationException.Message;
+                errorDetails.Errors = validationException.Errors.Select(x => new Error { ErrorMessage = x.PropertyName, ErrorExceptionMessage = x.ErrorMessage }).ToList();
+            }
+            else if (exception is BadHttpRequestException)
+            {
+                errorDetails.ErrorMessage = "bad_request";
+                errorDetails.ErrorExceptionMessage = exception.Message;
+                response.StatusCode = (int)HttpStatusCode.BadRequest;
+            }
+            else 
+            {
+                errorDetails.ErrorMessage = "something_went_wrong";
+                errorDetails.ErrorExceptionMessage = "Something went wrong";
+                response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
+                _logger.LogWarning("Unhandled error: {ex}", exception.ToString());
+            }
 
-            //var response = new ErrorDetails();
+            if (_hostingEnv.IsDevelopment() && (string.IsNullOrEmpty(errorDetails.ErrorMessage) || string.IsNullOrEmpty(errorDetails.ErrorExceptionMessage)))
+            {
+                errorDetails.ErrorMessage = "something_went_wrong";
+                errorDetails.ErrorExceptionMessage = exception.ToString();
+            }
+            
+            string responseText = System.Text.Json.JsonSerializer.Serialize(errorDetails, new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+            });
 
-            //if (_hostingEnv.IsDevelopment())
-            //{
-            //    response.ErrorExceptionMessage = exception.ToString();
-            //}
-
-            //context.Response.ContentType = "application/json";
-
-            //if(exception is NotFoundError)
-            //{
-            //    var notFoundError = exception as NotFoundError;
-            //    response.Message = "not_found";
-            //    response.ErrorExceptionMessage = notFoundError.ToString();
-            //}
-
-            //if (exception is CustomError)
-            //{
-            //    var customError = exception as CustomError;
-            //    response.Message = exception.Message ?? "Custom Error ocurred";
-            //    response.Errors.AddRange(customError.SerializeErrors());
-            //    context.Response.StatusCode = (int)customError.StatusCode;
-            //    await context.Response.WriteAsync(response.ToString());
-            //    return;
-            //}
-
-            //if (exception is BadHttpRequestException)
-            //{
-            //    response.Message = "A BadRequest was received";
-            //    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-            //    await context.Response.WriteAsync(response.ToString());
-            //    return;
-            //}
-
-            //response.Message = "Unexpected error ocurred";
-            //context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            //await context.Response.WriteAsync(response.ToString());
-
+            await response.WriteAsync(responseText);
         }
     }
 }

@@ -5,6 +5,8 @@ using Radium.Products.Application.Rest.Queries;
 using Radium.Products.Entities.Models;
 using Radium.Products.Rest.Contracts.Requests;
 using Radium.Products.Rest.Contracts.Response;
+using Radium.Shared.Utils.Errors;
+using Radium.Shared.Utils.Requests;
 using Radium.Shared.Utils.Responses;
 
 namespace Radium.Products.Rest.Controllers.V1
@@ -37,15 +39,15 @@ namespace Radium.Products.Rest.Controllers.V1
         }
 
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<ProductDto>))]
+        [ProducesResponseType(200, Type = typeof(PagedResponse<ProductDto>))]
         [ProducesResponseType(400, Type = typeof(ErrorDetails))]
         [ProducesResponseType(401, Type = typeof(ErrorDetails))]
         [ProducesResponseType(500, Type = typeof(ErrorDetails))]
-        public async Task<IActionResult> GetProducts()
+        public async Task<IActionResult> GetProducts([FromQuery] PaginationFilterRequest paginationFilter)
         {
             _logger.LogDebug("START: {method} (GET)", nameof(GetProducts));
 
-            var query = GetProductsQuery.Create();
+            var query = GetProductsQuery.Create(paginationFilter);
             var result = await Mediator.Send(query);
 
             _logger.LogDebug("END: {method} (GET) - SUCCESS", nameof(GetProducts));
@@ -54,7 +56,7 @@ namespace Radium.Products.Rest.Controllers.V1
         }
 
         [HttpPost]
-        [ProducesResponseType(200, Type = typeof(ProductDto))]
+        [ProducesResponseType(201, Type = typeof(ProductDto))]
         [ProducesResponseType(400, Type = typeof(ErrorDetails))]
         [ProducesResponseType(401, Type = typeof(ErrorDetails))]
         [ProducesResponseType(500, Type = typeof(ErrorDetails))]
@@ -67,7 +69,7 @@ namespace Radium.Products.Rest.Controllers.V1
 
             _logger.LogDebug("END: {method} (POST) Body ({productCreateModel}) - SUCCESS", nameof(CreateProduct), productCreateModel);
 
-            return Ok(result);
+            return Created("",result);
         }
 
         [HttpPut("{productId}")]
@@ -88,7 +90,7 @@ namespace Radium.Products.Rest.Controllers.V1
         }
 
         [HttpDelete("{productId}")]
-        [ProducesResponseType(200)]
+        [ProducesResponseType(204)]
         [ProducesResponseType(400, Type = typeof(ErrorDetails))]
         [ProducesResponseType(401, Type = typeof(ErrorDetails))]
         [ProducesResponseType(500, Type = typeof(ErrorDetails))]
@@ -101,7 +103,7 @@ namespace Radium.Products.Rest.Controllers.V1
 
             _logger.LogDebug("START: {method} (DELETE) Parameters ({productId}) - SUCCESS", nameof(DeleteProduct), productId);
 
-            return Ok(result);
+            return NoContent();
         }
     }
 }

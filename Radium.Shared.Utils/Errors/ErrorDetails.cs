@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Radium.Shared.Utils.Responses
+namespace Radium.Shared.Utils.Errors
 {
     public class ErrorDetails : Error
     {

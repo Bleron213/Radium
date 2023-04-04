@@ -12,8 +12,8 @@ using Radium.Products.Infrastructure.Persistence;
 namespace Radium.Products.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ProductsDbContext))]
-    [Migration("20230403134327_AddedInitial")]
-    partial class AddedInitial
+    [Migration("20230404202017_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -80,7 +80,6 @@ namespace Radium.Products.Infrastructure.Persistence.Migrations
                         .HasColumnType("nvarchar(2000)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

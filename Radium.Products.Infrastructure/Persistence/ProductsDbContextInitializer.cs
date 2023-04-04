@@ -56,7 +56,7 @@ namespace Radium.Products.Infrastructure.Persistence
         {
             foreach (var category in Categories)
             {
-                var exists = await _dbContext.Products.AnyAsync(x => x.Name == category.Name);
+                var exists = await _dbContext.Category.AnyAsync(x => x.Name == category.Name);
                 if(exists) continue;
                 await _dbContext.AddAsync(category);
             }

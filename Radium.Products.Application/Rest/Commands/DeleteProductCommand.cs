@@ -1,6 +1,10 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Radium.Products.Application.Common.Infrastructure.Interfaces;
+using Radium.Products.Domain.Exceptions;
 using Radium.Products.Rest.Contracts.Requests;
 using Radium.Products.Rest.Contracts.Response;
+using Radium.Shared.Utils.Errors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +15,10 @@ namespace Radium.Products.Application.Rest.Commands
 {
     public class DeleteProductCommand : IRequest<Unit>
     {
-        private readonly int _productId;
+        public readonly int ProductId;
         public DeleteProductCommand(int productId)
         {
-            _productId = productId;
+            ProductId = productId;
         }
 
         public static DeleteProductCommand Create(int productId)
@@ -24,9 +28,24 @@ namespace Radium.Products.Application.Rest.Commands
 
         public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand, Unit>
         {
-            public Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
+            private readonly IProductsDbContext _productsDbContext;
+
+            public DeleteProductCommandHandler(IProductsDbContext productsDbContext)
             {
-                throw new NotImplementedException();
+                _productsDbContext = productsDbContext;
+            }
+
+            public async Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
+            {
+                var product = await _productsDbContext.Products.FirstOrDefaultAsync(x => x.Id == request.ProductId,cancellationToken);
+
+                if (product == null)
+                    throw new AppException(ProductErrors.ProductNotFound);
+
+                _productsDbContext.Products.Remove(product);
+
+                await _productsDbContext.SaveChangesAsync();
+                return new Unit();
             }
         }
     }
